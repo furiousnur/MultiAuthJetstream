@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 use App\Guards\AdminStatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -34,6 +34,11 @@ class AdminController extends Controller
     public function __construct(AdminStatefulGuard $guard)
     {
         $this->guard = $guard;
+    }
+
+
+    public function loginForm(){
+        return view('auth.login', ['guard' => 'admin']);
     }
 
     /**
